@@ -1,0 +1,28 @@
+<h1 class = "has-text-centered is-primary has-text-weight-bold has-background-primary-light py-4 my-2">What would you like Makan today?</h1>
+<section class = "section">
+<form class="box" [formGroup]="form" (ngSubmit)="go()"   >
+  <table class="table">
+    <tr>
+      <td><label for = "cuisine" class = "label">Makan </label></td>
+      <td><input class="input" type = "text" id = "cuisine" formControlName = "foodName"></td>
+      <button type = "submit" class="button is-primary">Jiak!</button>
+    </tr>
+  </table>
+</form>
+</section>
+
+<section class = "section">
+<div *ngIf="foodArray.length>0" class = "container">
+  <h1>Here are your yummy inspirations {{this.username}}!</h1>
+  <div>
+    <ol type = "1">
+      <li *ngFor="let food of foodArray" (click) = "goFood(food.uuid,this.username)">{{food.name}}</li>
+    </ol>
+  </div>
+</div>
+</section>
+<div>
+  <button class="button is-danger" type = "button" [routerLink]="['/favourite',this.username]">Go Back To Your Favourites</button>
+</div>
+<br>
+<button type = "button" class = "button has-background-danger right" [routerLink]="['/']">Logout</button>

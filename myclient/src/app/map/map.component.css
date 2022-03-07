@@ -1,0 +1,27 @@
+#map-canvas{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 700px;
+  height: 400px;
+  margin-left: 550px;
+  margin-top:170px;
+  margin-right:40px;
+  padding: auto;
+}
+
+.floating-panel {
+  position: absolute;
+  top: 100;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}

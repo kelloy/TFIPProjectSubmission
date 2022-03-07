@@ -1,0 +1,26 @@
+<h1>Feedback Form</h1>
+<form [formGroup]="form" (ngSubmit)="processForm()">
+  <table>
+    <tr>
+      <td><label for = "username">Your Name: </label></td>
+      <td><input type = "text" formControlName = "username"></td>
+    </tr>
+    <tr>
+      <td><label for = "email">Your Email: </label></td>
+      <td><input type = "email" formControlName = "email" class="input is-danger"></td>
+    </tr>
+    <tr>
+      <td><label for = "contactNumber">Your Contact Number: </label></td>
+      <td><input type = "contactNumber" formControlName = "contactNumber"></td>
+    </tr>
+    <tr>
+      <td><label for="comment">Your FeedBack: </label></td>
+      <td><textarea col="30" row = "10" formControlName="comment" class="textarea"></textarea></td>
+    </tr>
+    <tr>
+      <td><button type = "submit" class="button is-link">Submit</button></td>
+    </tr>
+  </table>
+</form>
+<button type = "button" routerLink="['/']">Back</button>
+

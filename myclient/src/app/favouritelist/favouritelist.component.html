@@ -1,0 +1,17 @@
+<h1 class = "is-size-2 has-text-centered has-text-weight-bold has-background-primary-light px-auto py-auto">Here is your saved list</h1>
+<section class = "section">
+<div *ngIf="favouritelist.length>0" class="select is-multiple">
+  <br>
+    <div *ngFor="let favorite of favouritelist;let i = index" (click) = "goFood(favorite.uuid,this.username)" class = "is-size-4 has-text-centered">
+      {{favorite.stallName}}  <button type = "button" class = "delete" (click) = delete(favorite)>x</button>
+    </div>
+</div>
+</section>
+
+<div *ngIf ="favouritelist.length <=0" class = "is-size-3 has-text-centered">
+  <span>You have no favourite list please go search and add</span>
+</div>
+<br>
+<button type = "button" (click)="goSearch()" class = "button has-background-primary has-text-white px-auto my-2">Click To Search For Other Food</button>
+<br>
+<button type = "button" class = "button has-background-danger right" [routerLink]="['/']">Logout</button>

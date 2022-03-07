@@ -1,0 +1,31 @@
+<div>
+  <h1 class = "is-size-2 has-text-weight-bold has-text-centered is-primary has-background-warning py-4 my-2 is-size-4">{{food.name}}</h1>
+  <h2 class = "is-size-5 box has-text-semi-bold"><span class="has-text-weight-bold">About: </span>{{food.introduction}}</h2>
+  <div class = "box">
+  <h3 class = "has-text-weight-bold">Address</h3>
+  <h3><span *ngIf="food.block.length>0">Blk {{food.block}} </span><span *ngIf="food.floorNumber.length>0">#{{food.floorNumber}}-</span><span *ngIf="food.unitNumber.length>0">{{food.unitNumber}} </span>{{food.streetName}} Singapore {{food.postalCode}}</h3>
+  </div>
+  <h3 class = "box"><span class="has-text-weight-bold">Average Rating: </span>{{food.rating}}</h3>
+  <div class = "content box">
+  <h2 class = "has-text-weight-semi-bold">Reviews</h2>
+    <ol type ="1">
+    <li *ngFor="let review of food.reviews" class = "has-background-light">{{review.replace('"',"")}}</li>
+    </ol>
+  </div>
+  <div>
+    <button class="button is-primary" type = "button" (click) = goToMap(food.latitude,food.longitude);>Map and Direction</button>
+  </div>
+  <br>
+  <div>
+    <button class = "button is-primary" type = "button" (click) = saveFood(this.food)>Save</button>
+  </div>
+  <br>
+  <div>
+    <button class="button is-warning" type = "button" onclick="history.go(-1)">Go Back To Previous</button>
+  </div>
+  <br>
+  <div>
+    <button class="button is-danger" type = "button" [routerLink]="['/search',this.username]">Go Back Home</button>
+  </div>
+  <br>
+  <button type = "button" class = "button has-background-danger right" [routerLink]="['/']">Logout</button>
